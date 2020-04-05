@@ -34,13 +34,27 @@ The following animation demonstrates the application functionality:
 
 ![day planner demo](./Assets/05-third-party-apis-homework-demo.gif)
 
-## Review
+### Technology
 
-You are required to submit the following for review:
+The following technology is being used
 
-* The URL of the deployed application.
+  * HTML 5
+  * CSS
+  * Javascript
+  * Moment JS
 
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
+### Links
+
+Github pages link:
+
+   * <https://terry212.github.io/WK5/>
+
+Go to the link above
+Navigate to Week 5 HW link and click on it
+
+Repo link:
+
+   * <https://github.com/terry212/WK5>
 
 - - -
-© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+© Copyright 2020. All Rights Reserved.
