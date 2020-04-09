@@ -30,9 +30,12 @@ WHEN I refresh the page
 THEN the saved events persist
 ```
 
-The following animation demonstrates the application functionality:
+### Methodology
 
-![day planner demo](./Assets/05-third-party-apis-homework-demo.gif)
+This project started off with a skeleton, with no frills; simply, the foundation.
+Upon getting the columns displaying what is needed then functionality is added.
+Once functionality is proven, then this is iterated until the final business hour.
+Lastly, CSS is introduced to make everything pretty.
 
 ### Technology
 
