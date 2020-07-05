@@ -19,13 +19,13 @@ $(document).ready(function () {
     function schedule() {
         // grab element to observe to add class attr
         var divElement = $(".time-block");
-
+        // grabs local storage data and displays it
         for (let x = 0; x < divElement.length; x++) {
             var descElement = divElement[x].children[1];
             xString = divElement[x].id.toString();
             $(descElement).val(localStorage.getItem(xString));
         }
-
+        // color code control
         for (let i = 0; i < divElement.length; i++) {
             // grab id of each data hour block
             scheduleHour = divElement[i].id;
@@ -47,6 +47,11 @@ $(document).ready(function () {
             taskLegend();
         }
 
+    }
+
+    // clear local storage upon new day
+    if (currentHour === 24) {
+        localStorage.clear();
     }
 
     // function call
