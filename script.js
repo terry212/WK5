@@ -5,20 +5,42 @@ $(document).ready(function () {
         var currentDate = moment().format("dddd, MMMM Do YYYY, h:mm A");
         $("#currentDay").text(currentDate);
     }
-
-    // color code idea: use time from now function, if it is less 0 then it is past
-    // if it is in between 0 and 1 then present, if it is greater than 1 then it is future
+    // listen for save button clicks
+    $(".saveBtn").on("click", function () {
+        // Get value of correct row description
+        var userText = $(this).siblings(".description").val();
+        var timeStamp = $(this).parent().attr("id");
+        // save in localStorage
+        localStorage.setItem(timeStamp, userText);
+    });
 
     function schedule() {
-        // listen for save button clicks
-        $(".saveBtn").on("click", function () {
-            // Get value of correct row description
-            var userText = $(this).siblings(".description").val();
-            var timeStamp = $(this).parent().attr("id");
-            // save in localStorage
-            localStorage.setItem(timeStamp, userText);
-        });
+        // current hour for color code
+        var currentHour = moment().format("HH");
+        // grab element to observe to add class attr
+        var divElement = $(".time-block");
 
+        for (let i = 0; i < divElement.length; i++) {
+            // grab id of each data hour block
+            scheduleHour = divElement[i].id;
+
+            function taskLegend() {
+                if (scheduleHour < currentHour) {
+                    $(divElement[i]).addClass("past");
+                }
+                else if (scheduleHour == currentHour) {
+                    $(divElement[i]).removeClass("past");
+                    $(divElement[i]).addClass("present");
+                }
+                else {
+                    $(divElement[i]).removeClass("past");
+                    $(divElement[i]).removeClass("present");
+                    $(divElement[i]).addClass("future");
+                }
+            }
+
+            taskLegend();
+        }
     }
 
 
