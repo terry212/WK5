@@ -1,4 +1,6 @@
 $(document).ready(function () {
+    var currentHour = moment().format("HH");
+
     // The current day is displayed at the top of the calendar
     function appendCurrentDate() {
         // Time stamp given in format below
@@ -15,10 +17,14 @@ $(document).ready(function () {
     });
 
     function schedule() {
-        // current hour for color code
-        var currentHour = moment().format("HH");
         // grab element to observe to add class attr
         var divElement = $(".time-block");
+
+        for (let x = 0; x < divElement.length; x++) {
+            var descElement = divElement[x].children[1];
+            xString = divElement[x].id.toString();
+            $(descElement).val(localStorage.getItem(xString));
+        }
 
         for (let i = 0; i < divElement.length; i++) {
             // grab id of each data hour block
@@ -38,12 +44,10 @@ $(document).ready(function () {
                     $(divElement[i]).addClass("future");
                 }
             }
-
             taskLegend();
         }
+
     }
-
-
 
     // function call
     appendCurrentDate();
