@@ -1,6 +1,5 @@
 $(document).ready(function () {
     var currentHour = moment().format("HH");
-
     // The current day is displayed at the top of the calendar
     function appendCurrentDate() {
         // Time stamp given in format below
@@ -46,16 +45,13 @@ $(document).ready(function () {
             }
             taskLegend();
         }
-
     }
 
     // clear local storage upon new day
     if (currentHour === 24) {
         localStorage.clear();
     }
-
     // function call
     appendCurrentDate();
     schedule();
-
 });
